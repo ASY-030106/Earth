@@ -9,7 +9,6 @@ public class Spawner : MonoBehaviour
     public float maxSpawnInterval = 3.0f;
     public float speed = 5.0f;
     public Vector3 spawnDirection = Vector3.zero; // private 하면 뒤로감.
-    public static int missedNote = 0;
     private float timer = 0.0f;
     private float currentSpawnInterval;
 
