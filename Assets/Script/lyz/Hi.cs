@@ -6,11 +6,11 @@ public class Hi : MonoBehaviour
 {
     float z = 0;
     float x = 0;
-    //float y = 0;
+    float y = 0;
 
     void Start()
     {
-        Vector3 spawnPoint = new Vector3(0, transform.position.y, 0);
+        Vector3 spawnPoint = new Vector3(3, 3, -2);
 
         Debug.Log("¿Ãµø!");
         this.transform.position = spawnPoint;
@@ -42,7 +42,7 @@ public class Hi : MonoBehaviour
             x += 0.01f;
         }
 
-        Vector3 moveVec = new Vector3(x, transform.position.y, z);
+        Vector3 moveVec = new Vector3(x, 0, z);
         this.transform.position = moveVec;
     }
 }
