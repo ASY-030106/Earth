@@ -10,10 +10,10 @@ public class Hi : MonoBehaviour
 
     void Start()
     {
-        Vector3 spawnPoint = new Vector3(3, 3, -2);
+        /*Vector3 spawnPoint = new Vector3(0, 0, 0);
 
         Debug.Log("¿Ãµø!");
-        this.transform.position = spawnPoint;
+        this.transform.position = spawnPoint;*/
     }
 
     void Update()
@@ -42,7 +42,15 @@ public class Hi : MonoBehaviour
             x += 0.01f;
         }
 
-        Vector3 moveVec = new Vector3(x, 0, z);
+        Vector3 moveVec = new Vector3(x, 1, z);
         this.transform.position = moveVec;
+    }
+
+    private void onCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Cylinder")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

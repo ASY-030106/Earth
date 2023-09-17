@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Note
   - HitBoard
+  - object
   layers:
   - Default
   - TransparentFX
