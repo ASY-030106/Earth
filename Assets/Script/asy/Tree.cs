@@ -27,14 +27,12 @@ public class Tree : MonoBehaviour
     public void ClickWater()
     {
         Debug.Log("물주기");
-        WaterInt++;
-        TreeManager.Water = WaterInt;
+        TreeManager.Water++;     
     }
 
     public void ClickManure()
     {
         Debug.Log("비료 주기");
-        ManureInt++;
-        TreeManager.Manure = ManureInt;
+        TreeManager.Manure++;
     }
 }
