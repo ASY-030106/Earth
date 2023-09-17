@@ -7,6 +7,7 @@ TagManager:
   - Note
   - HitBoard
   - object
+  - Trash
   layers:
   - Default
   - TransparentFX
