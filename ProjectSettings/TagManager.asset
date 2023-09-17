@@ -6,7 +6,12 @@ TagManager:
   tags:
   - Note
   - HitBoard
+<<<<<<< HEAD
   - DeadLine
+=======
+  - object
+  - Trash
+>>>>>>> 74eee20d6d07ff46565c730cf9b90165cd312343
   layers:
   - Default
   - TransparentFX
