@@ -13,17 +13,6 @@ public class Tree : MonoBehaviour
         TreeManager.Manure = 0;
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ClickWater()
     {
         Debug.Log("물주기");
@@ -34,5 +23,10 @@ public class Tree : MonoBehaviour
     {
         Debug.Log("비료 주기");
         TreeManager.Manure++;
+    }
+
+    public void ClickBack()
+    {
+        Debug.Log("게임화면으로 돌아아기");
     }
 }
