@@ -25,12 +25,6 @@ public class Hi : MonoBehaviour
 
         //자기 포지션에서 계산된 Vector 값을 더해주면 됨
         this.transform.position += (vec * speed);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("esc키 누름");
-            //collision.gameObject.SetActive(false); //gameObject.SetActive(boolean) //오브젝트 비활성화 함수
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,13 +32,7 @@ public class Hi : MonoBehaviour
         if(collision.gameObject.tag == "Trash")
         {
             Debug.Log("쓰레기랑 충돌");
-
-            /*if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Debug.Log("esc키 누름");
-                //collision.gameObject.SetActive(false); //gameObject.SetActive(boolean) //오브젝트 비활성화 함수
-            }*/
-                
+            collision.gameObject.SetActive(false); //gameObject.SetActive(boolean) //오브젝트 비활성화 함수
         }
         else
         {
