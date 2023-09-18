@@ -11,7 +11,6 @@ public class Spawner : MonoBehaviour
     public Vector3 spawnDirection = Vector3.zero; // private 하면 뒤로감.
     private float timer = 0.0f;
     private float currentSpawnInterval;
-
     private void Awake()
     {
         currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
@@ -19,12 +18,23 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= currentSpawnInterval)
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            timer = 0.0f;
-            SpawnNote();
-            currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+            PlayerController.gameSet = true;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlayerController.gameSet = false;
+        }
+        if (PlayerController.gameSet)
+        {
+            timer += Time.deltaTime;
+            if (timer >= currentSpawnInterval)
+            {
+                timer = 0.0f;
+                SpawnNote();
+                currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+            }
         }
     }
 

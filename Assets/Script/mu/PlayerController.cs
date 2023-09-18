@@ -16,12 +16,17 @@ public class PlayerController : MonoBehaviour
     public Text textBad;
     public Text textMiss;
     public Text textGold;
+    public Text textThisGold;
+    public Text textGameSet;
+    public Button btnStart;
 
     public static int perfect;
     public static int great;
     public static int good;
     public static int bad;
     public static int miss;
+    public static int thisGold;
+    public static bool gameSet;
 
     void Awake()
     {
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
         }
         playerData = new PlayerData();
         LoadPlayerDataFromJson();
+        textGameSet.text = "";
     }
     void Update()
     {
@@ -43,8 +49,17 @@ public class PlayerController : MonoBehaviour
         textGood.text = "Good : " + good.ToString();
         textBad.text = "Bad : " + bad.ToString();
         textMiss.text = "Miss : " + miss.ToString();
+        textThisGold.text = "ÀÌ¹øÆÇ¿¡ È¹µæÇÑ °ñµå´Â " + thisGold.ToString();
         textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerData.gold.ToString();
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + bad + " !\nMiss : " + miss + " !");
+        if (!gameSet)
+        {
+            textGameSet.text = "Pause";
+        }
+        else
+        {
+            textGameSet.text = "";
+        }
     }
 
     [ContextMenu("To Json Data")]
