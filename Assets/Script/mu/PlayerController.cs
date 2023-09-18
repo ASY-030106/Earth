@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using UnityEngine.U2D;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,7 +25,8 @@ public class PlayerController : MonoBehaviour
     public static int bad;
     public static int miss;
     public static int thisGold;
-    public static bool gameSet;
+    public static bool gameSet = false;
+    public static bool isPause = false;
 
     void Awake()
     {
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         }
         playerData = new PlayerData();
         LoadPlayerDataFromJson();
-        textGameSet.text = "";
+        textGameSet.text = "Press S to Start";
     }
     void Update()
     {
@@ -52,11 +52,11 @@ public class PlayerController : MonoBehaviour
         textThisGold.text = "ÀÌ¹øÆÇ¿¡ È¹µæÇÑ °ñµå´Â " + thisGold.ToString();
         textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerData.gold.ToString();
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + bad + " !\nMiss : " + miss + " !");
-        if (!gameSet)
+        if (isPause)
         {
             textGameSet.text = "Pause";
         }
-        else
+        else if (!isPause && gameSet)
         {
             textGameSet.text = "";
         }

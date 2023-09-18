@@ -18,13 +18,25 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (PlayerController.gameSet && Input.GetKeyDown(KeyCode.P))
         {
-            PlayerController.gameSet = true;
+            if (PlayerController.isPause == false)
+            {
+                Time.timeScale = 0;
+                PlayerController.isPause = true;
+                return;
+            }
+
+            if (PlayerController.isPause == true)
+            {
+                Time.timeScale = 1;
+                PlayerController.isPause = false;
+                return;
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            PlayerController.gameSet = false;
+            PlayerController.gameSet = true;
         }
         if (PlayerController.gameSet)
         {
