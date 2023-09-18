@@ -77,5 +77,9 @@ public class Note : MonoBehaviour
         {
             isHit = false;
         }
-    }    
+    }
+    private void Combo()
+    {
+
+    }
 }
