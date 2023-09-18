@@ -32,24 +32,28 @@ public class Note : MonoBehaviour
             {
                 Debug.Log(zValue);
                 PlayerController.perfect++;
+                PlayerController.thisGold += 100;
                 PlayerController.instance.playerData.gold += 100;
             }
             else if (zValue < -0.90f && zValue > -1.10)
             {
                 Debug.Log(zValue);
                 PlayerController.great++;
+                PlayerController.thisGold += 50;
                 PlayerController.instance.playerData.gold += 50;
             }
             else if (zValue < -0.85f && zValue > -1.15)
             {
                 Debug.Log(zValue);
                 PlayerController.good++;
+                PlayerController.thisGold += 25;
                 PlayerController.instance.playerData.gold += 25;
             }
             else if (zValue < -0.80f && zValue > -1.20)
             {
                 Debug.Log(zValue);
                 PlayerController.bad++;
+                PlayerController.thisGold += 10;
                 PlayerController.instance.playerData.gold += 10;
             }
             else if (zValue > -2.00)
@@ -73,5 +77,9 @@ public class Note : MonoBehaviour
         {
             isHit = false;
         }
-    }    
+    }
+    private void Combo()
+    {
+
+    }
 }
