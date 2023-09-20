@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hi : MonoBehaviour
 {
+    GameObject nearObject;
+
     void Start()
     {
  
@@ -21,13 +23,26 @@ public class Hi : MonoBehaviour
         //vec => 다음 이동 위치의 벡터값 = 한 발자국
         //Debug.Log(vec);
 
-        float speed = 0.01f;
+        float speed = 0.03f;
 
         //자기 포지션에서 계산된 Vector 값을 더해주면 됨
         this.transform.position += (vec * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void onTriggerStay(Collider other)
+    {
+        if (other.name == "Trash")
+            Debug.Log("쓰레기와 닿았습니다.");
+            nearObject = other.gameObject;
+    }
+
+    private void onTriggerExit(Collider other)
+    {
+        if (other.tag == "Trash")
+            nearObject = null;
+    }
+
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Trash")
         {
@@ -38,17 +53,5 @@ public class Hi : MonoBehaviour
         {
             Debug.Log("쓰레기 아닌 거랑 충돌");
         }
-    }
-
-    //쓰레기 충돌 시 쓰레기 오브젝트 비활성화니까 얘네 둘은 필요 없음
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    Debug.Log("범위 안에 들어옴");
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    Debug.Log("범위를 빠져나감");
-    //}
-
+    }*/
 }
