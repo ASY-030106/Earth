@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour
     public Text textGameSet;
     public Button btnStart;
 
-    public static int perfect;
-    public static int great;
-    public static int good;
-    public static int bad;
-    public static int miss;
+    public static float perfect;
+    public static float great;
+    public static float good;
+    public static float bad;
+    public static float miss;
     public static int thisGold;
     public static bool gameSet = false;
     public static bool isPause = false;
