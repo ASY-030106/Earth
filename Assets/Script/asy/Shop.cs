@@ -10,10 +10,10 @@ public class Shop : MonoBehaviour
     public List<string> tree = new List<string>();
     public List<int> materialPrice = new List<int>();
     public List<string> material = new List<string>();
-
-    int i,minusPrice;
-    public Text text,money;
-    public GameObject treePanel, materialPanel;
+    public GameObject[] treePanel;
+    int i,minusPrice,number;
+    public Text text,money,left,right;
+    public GameObject treePanel1, materialPanel;
 
     void Awake()
     {
@@ -21,6 +21,7 @@ public class Shop : MonoBehaviour
         minusPrice = 0;
         GameManager.price = 100000; //임시로 금액 넣어둠
         money.text = "돈 : " + GameManager.price;
+        number = 0;
     }
 
     void Start()
@@ -100,13 +101,42 @@ public class Shop : MonoBehaviour
 
     public void clickTreePanel()
     {
-        treePanel.SetActive(true);
+        treePanel1.SetActive(true);
         materialPanel.SetActive(false);
     }
 
     public void clickMaterialPanel()
     {
         materialPanel.SetActive(true);
-        treePanel.SetActive(false);
+        treePanel1.SetActive(false);
+    }
+
+    public void ClickRight()
+    {
+        Debug.Log("오른쪽 버튼 누름");
+        GameObject treePanelRight = treePanel[number];
+        treePanelRight.SetActive(false);
+        number++;
+        treePanelRight = treePanel[number];
+        treePanelRight.SetActive(true);
+        left.gameObject.SetActive(true);
+        if (number == 2)
+        {
+            right.gameObject.SetActive(false); 
+        }
+    }
+
+    public void ClickLeft()
+    {
+        Debug.Log("왼쪽 버튼 누름");
+        GameObject treePanelLeft = treePanel[number];
+        treePanelLeft.SetActive(false);
+        number--;
+        treePanelLeft = treePanel[number];
+        treePanelLeft.SetActive(true);
+        if(number == 0)
+        {
+            left.gameObject.SetActive(false);
+        }
     }
 }
