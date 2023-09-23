@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hi : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody rigid;
     public int trashCount;
     public float jumpPower;
     bool isJump;
+    GameObject trash;
 
     void Start()
     {
@@ -43,9 +44,17 @@ public class Hi : MonoBehaviour
     {
         if (other.tag == "Trash")
         {
-            trashCount++;
-            other.gameObject.SetActive(false);
-            Debug.Log("주운 쓰레기 개수: " + trashCount);
+            //other.gameObject.SetActive(false);
+            trash = other.gameObject;
+            //trashCount++;
+            //Debug.Log("주운 쓰레기 개수: " + trashCount);
         }
+    }
+
+    public void PickUp()
+    {
+        trash.gameObject.SetActive(false);
+        //trashCount++;
+        //Debug.Log("주운 쓰레기 개수: " + trashCount);
     }
 }
