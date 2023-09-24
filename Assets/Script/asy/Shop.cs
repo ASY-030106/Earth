@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     public List<string> tree = new List<string>();
     public List<int> materialPrice = new List<int>();
     public List<string> material = new List<string>();
-    Dictionary<int, string> inventory;
+    public List<Text> inventory = new List<Text>();
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
     int i,minusPrice,number;
@@ -26,7 +26,6 @@ public class Shop : MonoBehaviour
         money.text = "µ· : " + GameManager.price;
         number = 0;
         isActive = true;
-        inventory = new Dictionary<int, string>();
     }
 
     public void ClickTree1()
@@ -274,5 +273,14 @@ public class Shop : MonoBehaviour
     public void Inventory(string slot)
     {
 
+        for (int i=0; i<inventory.Count; i++)
+        {
+            if (inventory[i].text == "")
+            {
+                Debug.Log(slot);
+                inventory[i].text = slot;
+                break;
+            }
+        }
     }
 }
