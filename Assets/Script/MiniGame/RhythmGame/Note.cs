@@ -33,28 +33,28 @@ public class Note : MonoBehaviour
                 Debug.Log(zValue);
                 PlayerController.perfect++;
                 PlayerController.thisGold += 100;
-                PlayerController.instance.playerMoney.gold += 100;
+                PlayerController.instance.playerMoney.money += 100;
             }
             else if (zValue < -0.70f && zValue > -1.30f)
             {
                 Debug.Log(zValue);
                 PlayerController.great++;
                 PlayerController.thisGold += 50;
-                PlayerController.instance.playerMoney.gold += 50;
+                PlayerController.instance.playerMoney.money += 50;
             }
             else if (zValue < -0.60f && zValue > -1.40f)
             {
                 Debug.Log(zValue);
                 PlayerController.good++;
                 PlayerController.thisGold += 25;
-                PlayerController.instance.playerMoney.gold += 25;
+                PlayerController.instance.playerMoney.money += 25;
             }
             else if (zValue < -0.50f && zValue > -1.50f)
             {
                 Debug.Log(zValue);
                 PlayerController.bad++;
                 PlayerController.thisGold += 10;
-                PlayerController.instance.playerMoney.gold += 10;
+                PlayerController.instance.playerMoney.money += 10;
             }
             else if (zValue > -2.00f)
             {
