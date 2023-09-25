@@ -7,7 +7,7 @@ using System.IO;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    public PlayerData playerData;
+    public PlayerMoney playerMoney;
 
     public Text textPerfect;
     public Text textGreat;
@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        playerData = new PlayerData();
-        LoadPlayerDataFromJson();
+        playerMoney = new PlayerMoney();
+        LoadPlayerMoneyFromJson();
         textGameSet.text = "Press S to Start";
     }
     void Update()
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         textBad.text = "Bad : " + bad.ToString();
         textMiss.text = "Miss : " + miss.ToString();
         textThisGold.text = "ÀÌ¹øÆÇ¿¡ È¹µæÇÑ °ñµå´Â " + thisGold.ToString();
-        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerData.gold.ToString();
+        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerMoney.gold.ToString();
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + bad + " !\nMiss : " + miss + " !");
         if (isPause)
         {
@@ -63,29 +63,29 @@ public class PlayerController : MonoBehaviour
     }
 
     [ContextMenu("To Json Data")]
-    void SavePlayerDataToJson()
+    void SavePlayerMoneyToJson()
     {
-        string jsonData = JsonUtility.ToJson(playerData,true);
-        string path = Path.Combine(Application.dataPath, "playerData.json");
+        string jsonData = JsonUtility.ToJson(playerMoney, true);
+        string path = Path.Combine(Application.dataPath, "playerMoney.json");
         File.WriteAllText(path, jsonData);
     }
 
     [ContextMenu("From Json Data")]
-    void LoadPlayerDataFromJson()
+    void LoadPlayerMoneyFromJson()
     {
-        string path = Path.Combine(Application.dataPath, "playerData.json");
+        string path = Path.Combine(Application.dataPath, "playerMoney.json");
         string jsonData = File.ReadAllText(path);
-        playerData = JsonUtility.FromJson<PlayerData>(jsonData);
+        playerMoney = JsonUtility.FromJson<PlayerMoney>(jsonData);
     }
     private void OnApplicationQuit()
     {
         Debug.Log("°ÔÀÓ Á¾·á");
-        SavePlayerDataToJson();
+        SavePlayerMoneyToJson();
     }
 }
 
 [System.Serializable]
-public class PlayerData
+public class PlayerMoney
 {
     public int gold;
 }
