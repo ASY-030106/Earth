@@ -7,20 +7,19 @@ using UnityEngine.UIElements;
 public class Shop : MonoBehaviour
 {
     public List<int> treePrice = new List<int>();
-    public List<string> tree = new List<string>();
+    public List<string> trees = new List<string>();
     public List<int> materialPrice = new List<int>();
-    public List<string> material = new List<string>();
+    public List<string> materials = new List<string>();
     public List<Text> inventory = new List<Text>();
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
-    int i,minusPrice,number;
+    int minusPrice,number;
     bool isActive;
     public Text text,money,left,right;
     public GameObject treePanel1, materialPanel1;
 
     void Awake()
     {
-        i = 0;
         minusPrice = 0;
         GameManager.price = 100000; //ÀÓ½Ã·Î ±Ý¾× ³Ö¾îµÒ
         money.text = "µ· : " + GameManager.price;
@@ -165,7 +164,7 @@ public class Shop : MonoBehaviour
 
         GameManager.price -= minusPrice;
         money.text = "µ· : " + GameManager.price;
-        text.text = tree[i];
+        text.text = trees[i];
     }
 
     public void BuyMaterial(int i)
@@ -179,7 +178,7 @@ public class Shop : MonoBehaviour
 
         GameManager.price -= minusPrice;
         money.text = "µ· : " + GameManager.price;
-        text.text = material[i];
+        text.text = materials[i];
     }
 
     public void clickTreePanel()
