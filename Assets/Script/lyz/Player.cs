@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        isJump = false;
+        isJump = false;    
     }
 
     void Update()
