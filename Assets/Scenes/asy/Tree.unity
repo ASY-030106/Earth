@@ -705,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863572576}
   - component: {fileID: 863572575}
+  - component: {fileID: 863572577}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -739,6 +740,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863572577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863572574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacda064cb44d9942b9a07ed6f235710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaterText: {fileID: 1484878310}
+  ManureText: {fileID: 1934879915}
+  WaterButton: {fileID: 474344960}
+  ManureButton: {fileID: 869993499}
 --- !u!1 &869993496
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +971,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211121643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 863572575}
+        m_TargetAssemblyTypeName: Tree, Assembly-CSharp
+        m_MethodName: ClickBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211121643
 MonoBehaviour:
   m_ObjectHideFlags: 0

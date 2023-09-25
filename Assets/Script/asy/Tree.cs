@@ -4,35 +4,27 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Tree : MonoBehaviour
-{
-    int WaterInt = 0;
-    int ManureInt = 0;
+{ 
     void Awake()
     {
-        TreeManager.Water = 0;
-        TreeManager.Manure = 0;
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.Water = 0;
+        GameManager.Manure = 0;
     }
 
     public void ClickWater()
     {
         Debug.Log("물주기");
-        TreeManager.Water++;     
+        GameManager.Water++;     
     }
 
     public void ClickManure()
     {
         Debug.Log("비료 주기");
-        TreeManager.Manure++;
+        GameManager.Manure++;
+    }
+
+    public void ClickBack()
+    {
+        Debug.Log("게임화면으로 돌아아기");
     }
 }
