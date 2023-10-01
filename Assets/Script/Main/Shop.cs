@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Shop : MonoBehaviour
 {
@@ -12,21 +11,17 @@ public class Shop : MonoBehaviour
     public List<int> materialPrice = new List<int>();
     public List<string> materials = new List<string>();
     public List<Text> inventory = new List<Text>();
-    public GameObject[] nubmerImage;
+    public Sprite[] nubmerTreeImage;
+    public Sprite[] nubmerMaterialImage;
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
-    int minusPrice, number, numberInt, priceInt;
+    int minusPrice, number, numberInt, priceInt,imageInt;
     string name;
     bool isActive;
     public Text text,money,left,right;
     public GameObject treePanel1, materialPanel1,numberPanel;
     public Text numberText;
-    
-
-    private void Update()
-    {
-        Debug.Log(numberInt);
-    }
+    public Image thisImg;   
 
     void Awake()
     {
@@ -39,16 +34,17 @@ public class Shop : MonoBehaviour
     }
 
     public void ClickTree1()
-    {        
+    {
+        thisImg.sprite = nubmerTreeImage[0];
         numberPanel.SetActive(true);
         priceInt = 0;
-        name = "나무1";
-        
+        name = "나무1";       
         Debug.Log("나무1 버튼 누름");      
     }
 
     public void ClickTree2()
     {
+        thisImg.sprite = nubmerTreeImage[1];
         numberPanel.SetActive(true);
         Debug.Log("나무2 버튼 누름");
         priceInt = 1;
@@ -57,6 +53,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree3()
     {
+        thisImg.sprite = nubmerTreeImage[2];
         numberPanel.SetActive(true);
         Debug.Log("나무3 버튼 누름");
         priceInt = 2;
@@ -65,6 +62,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree4()
     {
+        thisImg.sprite = nubmerTreeImage[3];
         numberPanel.SetActive(true);
         Debug.Log("나무4 버튼 누름");
         priceInt = 3;
@@ -73,6 +71,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree5()
     {
+        thisImg.sprite = nubmerTreeImage[4];
         numberPanel.SetActive(true);
         Debug.Log("나무5 버튼 누름");
         priceInt = 4;
@@ -81,6 +80,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree6()
     {
+        thisImg.sprite = nubmerTreeImage[5];
         numberPanel.SetActive(true);
         Debug.Log("나무6 버튼 누름");
         priceInt = 5;
@@ -89,6 +89,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree7()
     {
+        thisImg.sprite = nubmerTreeImage[6];
         numberPanel.SetActive(true);
         Debug.Log("나무7 버튼 누름");
         priceInt = 6;
@@ -97,6 +98,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree8()
     {
+        thisImg.sprite = nubmerTreeImage[7];
         numberPanel.SetActive(true);
         Debug.Log("나무8 버튼 누름");
         priceInt = 7;
@@ -105,6 +107,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree9()
     {
+        thisImg.sprite = nubmerTreeImage[8];
         numberPanel.SetActive(true);
         Debug.Log("나무9 버튼 누름");
         priceInt = 8;
@@ -113,6 +116,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial1()
     {
+        thisImg.sprite = nubmerMaterialImage[0];
         numberPanel.SetActive(true);
         Debug.Log("재료1 버튼 누름");
         priceInt = 0;
@@ -121,6 +125,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial2()
     {
+        thisImg.sprite = nubmerMaterialImage[1];
         numberPanel.SetActive(true);
         Debug.Log("재료2 버튼 누름");
         priceInt = 1;
@@ -129,6 +134,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial3()
     {
+        thisImg.sprite = nubmerMaterialImage[2];
         numberPanel.SetActive(true);
         Debug.Log("재료3 버튼 누름");
         priceInt = 2;
@@ -137,6 +143,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial4()
     {
+        thisImg.sprite = nubmerMaterialImage[3];
         numberPanel.SetActive(true);
         Debug.Log("재료4 버튼 누름");
         priceInt = 3;
@@ -145,6 +152,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial5()
     {
+        thisImg.sprite = nubmerMaterialImage[4];
         numberPanel.SetActive(true);
         Debug.Log("재료5 버튼 누름");
         priceInt = 4;
@@ -153,6 +161,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial6()
     {
+        thisImg.sprite = nubmerMaterialImage[5];
         numberPanel.SetActive(true);
         Debug.Log("재료6 버튼 누름");
         priceInt = 5;
@@ -161,6 +170,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial7()
     {
+        thisImg.sprite = nubmerMaterialImage[6];
         numberPanel.SetActive(true);
         Debug.Log("재료7 버튼 누름");
         priceInt = 6;
@@ -169,6 +179,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial8()
     {
+        thisImg.sprite = nubmerMaterialImage[7];
         numberPanel.SetActive(true);
         Debug.Log("재료8 버튼 누름");
         priceInt = 7;
@@ -177,6 +188,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial9()
     {
+        thisImg.sprite = nubmerMaterialImage[8];
         numberPanel.SetActive(true);
         Debug.Log("재료9 버튼 누름");
         priceInt = 8;

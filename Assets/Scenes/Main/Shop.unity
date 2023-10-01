@@ -3521,6 +3521,26 @@ MonoBehaviour:
   - {fileID: 1234323436}
   - {fileID: 1438738289}
   - {fileID: 1708748372}
+  nubmerTreeImage:
+  - {fileID: 21300000, guid: b0d1b69675b755f4f962196b21db8e09, type: 3}
+  - {fileID: 21300000, guid: bd6c06d3c6004754d8c8fe58b97ae48b, type: 3}
+  - {fileID: 21300000, guid: 4f36c4780f2bf83459dfccb1d3c621c7, type: 3}
+  - {fileID: 21300000, guid: 3e236882e0b2d024ea2ccc1227afc826, type: 3}
+  - {fileID: 21300000, guid: f0bda54a0ec2a6744a0cd535a8e5937c, type: 3}
+  - {fileID: 21300000, guid: c80e3413ff7aaa444bcbf4e120774e53, type: 3}
+  - {fileID: 21300000, guid: 63fc2ecd6d273e34a94e6632d0ec49c9, type: 3}
+  - {fileID: 21300000, guid: 6500df11550ef28429021fb08ac167b5, type: 3}
+  - {fileID: 21300000, guid: 8364bf9ec2ad9784f817df8ac8296612, type: 3}
+  nubmerMaterialImage:
+  - {fileID: 21300000, guid: 4d027927ab7048d428123de04eacee29, type: 3}
+  - {fileID: 21300000, guid: cf50190ab75256e40b1165fb132f64e7, type: 3}
+  - {fileID: 21300000, guid: 1482da0da048b1f43905ab193d414286, type: 3}
+  - {fileID: 21300000, guid: d1a0e988defca354a9caf1aeed00ae1f, type: 3}
+  - {fileID: 21300000, guid: c682e6f13d78ebb4296e068ec0099865, type: 3}
+  - {fileID: 21300000, guid: 113b6e6250a3c0d4180cdffe97e2b38c, type: 3}
+  - {fileID: 21300000, guid: 73ab2eda8f3212a4297cfef675e875dd, type: 3}
+  - {fileID: 21300000, guid: eed09842fd78d064b85fd1e2d3b3e1b9, type: 3}
+  - {fileID: 21300000, guid: 83bd4e63be1c3764e9750585e278b9e8, type: 3}
   treePanel:
   - {fileID: 275712800}
   - {fileID: 367550657}
@@ -3537,6 +3557,7 @@ MonoBehaviour:
   materialPanel1: {fileID: 663953321}
   numberPanel: {fileID: 516658468}
   numberText: {fileID: 152312540}
+  thisImg: {fileID: 1070964473}
 --- !u!1 &845281354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4240,7 +4261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d027927ab7048d428123de04eacee29, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
