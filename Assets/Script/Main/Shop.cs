@@ -13,10 +13,11 @@ public class Shop : MonoBehaviour
     public List<Text> inventory = new List<Text>();
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
-    int minusPrice,number;
+    int minusPrice,number,numberInt;
     bool isActive;
     public Text text,money,left,right;
-    public GameObject treePanel1, materialPanel1;
+    public GameObject treePanel1, materialPanel1,numberPanel;
+    public Text numberText;
 
     void Awake()
     {
@@ -29,13 +30,15 @@ public class Shop : MonoBehaviour
 
     public void ClickTree1()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무1 버튼 누름");
-        BuyTree(0);
-        Inventory("나무1");
+        //BuyTree(0);
+        //Inventory("나무1");
     }
 
     public void ClickTree2()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무2 버튼 누름");
         BuyTree(1);
         Inventory("나무2");
@@ -43,6 +46,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree3()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무3 버튼 누름");
         BuyTree(2);
         Inventory("나무3");
@@ -50,6 +54,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree4()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무4 버튼 누름");
         BuyTree(3);
         Inventory("나무4");
@@ -57,6 +62,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree5()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무5 버튼 누름");
         BuyTree(4);
         Inventory("나무5");
@@ -64,6 +70,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree6()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무6 버튼 누름");
         BuyTree(5);
         Inventory("나무6");
@@ -71,6 +78,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree7()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무7 버튼 누름");
         BuyTree(6);
         Inventory("나무7");
@@ -78,6 +86,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree8()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무8 버튼 누름");
         BuyTree(7);
         Inventory("나무8");
@@ -85,6 +94,7 @@ public class Shop : MonoBehaviour
 
     public void ClickTree9()
     {
+        numberPanel.SetActive(true);
         Debug.Log("나무9 버튼 누름");
         BuyTree(8);
         Inventory("나무9");
@@ -92,6 +102,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial1()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료1 버튼 누름");
         BuyMaterial(0);
         Inventory("재료1");
@@ -99,6 +110,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial2()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료2 버튼 누름");
         BuyMaterial(1);
         Inventory("재료2");
@@ -106,6 +118,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial3()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료3 버튼 누름");
         BuyMaterial(2);
         Inventory("재료3");
@@ -113,6 +126,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial4()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료4 버튼 누름");
         BuyMaterial(3);
         Inventory("재료4");
@@ -120,6 +134,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial5()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료5 버튼 누름");
         BuyMaterial(4);
         Inventory("재료5");
@@ -127,6 +142,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial6()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료6 버튼 누름");
         BuyMaterial(5);
         Inventory("재료6");
@@ -134,6 +150,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial7()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료7 버튼 누름");
         BuyMaterial(6);
         Inventory("재료7");
@@ -141,6 +158,7 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial8()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료8 버튼 누름");
         BuyMaterial(7);
         Inventory("재료8");
@@ -148,9 +166,33 @@ public class Shop : MonoBehaviour
 
     public void ClickMaterial9()
     {
+        numberPanel.SetActive(true);
         Debug.Log("재료9 버튼 누름");
         BuyMaterial(8);
         Inventory("재료9");
+    }
+
+    public void ClickPlus()
+    {
+        Debug.Log("+ 버튼"); 
+        numberInt++;
+        numberText.text=numberInt.ToString();
+    }
+
+    public void ClickMinus()
+    {
+        if (numberInt <= 0)
+        {
+            return;
+        }
+        Debug.Log("- 버튼");
+        numberInt--;
+        numberText.text=numberInt.ToString();       
+    }
+
+    public void ClickCheck()
+    {
+        numberPanel.SetActive(false);
     }
 
     public void BuyTree(int i)
