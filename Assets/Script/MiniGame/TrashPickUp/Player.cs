@@ -19,11 +19,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !isJump)
+        /*if (Input.GetButtonDown("Jump") && !isJump)
         {
             isJump = true;
             rigid.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
-        }
+        }*/
     }
 
     void FixedUpdate()
@@ -57,5 +57,14 @@ public class Player : MonoBehaviour
         trash.gameObject.SetActive(false);
         //trashCount++;
         //Debug.Log("주운 쓰레기 개수: " + trashCount);
+    }
+
+    public void Jump()
+    {
+        if (!isJump)
+        {
+            isJump = true;
+            rigid.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+        }
     }
 }
