@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     public GameObject trash;
     //public GameObject btnTrash;
     public Button btnTrash;
-    public bool isPickUp;
 
     void Start()
     {
@@ -40,13 +39,13 @@ public class Player : MonoBehaviour
         rigid.AddForce(vec, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision) //점프 버튼
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Floor")
             isJump = false;
     }
 
-    public void OnTriggerEnter(Collider other) //쓰레기에 닿으면 버튼 활성화
+    public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Trash")
         {
