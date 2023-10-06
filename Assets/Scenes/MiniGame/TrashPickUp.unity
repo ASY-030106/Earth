@@ -1255,7 +1255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashCount: 0
-  jumpPower: 30
+  jumpPower: 35
+  trash: {fileID: 0}
+  btnTrash: {fileID: 0}
 --- !u!1 &1463408001
 GameObject:
   m_ObjectHideFlags: 0
