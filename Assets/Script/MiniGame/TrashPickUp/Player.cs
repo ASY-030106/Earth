@@ -10,15 +10,12 @@ public class Player : MonoBehaviour
     public float jumpPower;
     bool isJump;
     public GameObject trash;
-    //public GameObject btnTrash;
     public Button btnTrash;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
         isJump = false;
-        //btnTrash = GameObject.Find("btnTrash");
-        //btnTrash.SetActive(false);
     }
 
     void Update()
@@ -51,6 +48,14 @@ public class Player : MonoBehaviour
         {
             trash = other.gameObject;
             btnTrash.gameObject.SetActive(true);    
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Trash")
+        {
+            btnTrash.gameObject.SetActive(false);
         }
     }
 

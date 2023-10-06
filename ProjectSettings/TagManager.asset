@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trash
+  - DeadLine
+  - HitBoard
+  - Floor
   layers:
   - Default
   - TransparentFX
