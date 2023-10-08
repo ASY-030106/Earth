@@ -8,6 +8,7 @@ TagManager:
   - DeadLine
   - HitBoard
   - Floor
+  - Continent
   layers:
   - Default
   - TransparentFX
