@@ -1,171 +1,244 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Shop : MonoBehaviour
 {
     public List<int> treePrice = new List<int>();
-    public List<string> tree = new List<string>();
+    public List<string> trees = new List<string>();
     public List<int> materialPrice = new List<int>();
-    public List<string> material = new List<string>();
+    public List<string> materials = new List<string>();
     public List<Text> inventory = new List<Text>();
+    public Sprite[] nubmerTreeImage;
+    public Sprite[] nubmerMaterialImage;
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
-    int i,minusPrice,number;
+    int minusPrice, number, numberInt, priceInt,imageInt;
+    string name;
     bool isActive;
     public Text text,money,left,right;
-    public GameObject treePanel1, materialPanel1;
+    public GameObject treePanel1, materialPanel1,numberPanel;
+    public Text numberText;
+    public Image thisImg;   
 
     void Awake()
     {
-        i = 0;
         minusPrice = 0;
         GameManager.price = 100000; //임시로 금액 넣어둠
         money.text = "돈 : " + GameManager.price;
         number = 0;
+        numberInt = 0;
         isActive = true;
     }
 
     public void ClickTree1()
     {
-        Debug.Log("나무1 버튼 누름");
-        BuyTree(0);
-        Inventory("나무1");
+        thisImg.sprite = nubmerTreeImage[0];
+        numberPanel.SetActive(true);
+        priceInt = 0;
+        name = "나무1";       
+        Debug.Log("나무1 버튼 누름");      
     }
 
     public void ClickTree2()
     {
+        thisImg.sprite = nubmerTreeImage[1];
+        numberPanel.SetActive(true);
         Debug.Log("나무2 버튼 누름");
-        BuyTree(1);
-        Inventory("나무2");
+        priceInt = 1;
+        name = "나무2";
     }
 
     public void ClickTree3()
     {
+        thisImg.sprite = nubmerTreeImage[2];
+        numberPanel.SetActive(true);
         Debug.Log("나무3 버튼 누름");
-        BuyTree(2);
-        Inventory("나무3");
+        priceInt = 2;
+        name = "나무3";
     }
 
     public void ClickTree4()
     {
+        thisImg.sprite = nubmerTreeImage[3];
+        numberPanel.SetActive(true);
         Debug.Log("나무4 버튼 누름");
-        BuyTree(3);
-        Inventory("나무4");
+        priceInt = 3;
+        name = "나무4";
     }
 
     public void ClickTree5()
     {
+        thisImg.sprite = nubmerTreeImage[4];
+        numberPanel.SetActive(true);
         Debug.Log("나무5 버튼 누름");
-        BuyTree(4);
-        Inventory("나무5");
+        priceInt = 4;
+        name = "나무5";
     }
 
     public void ClickTree6()
     {
+        thisImg.sprite = nubmerTreeImage[5];
+        numberPanel.SetActive(true);
         Debug.Log("나무6 버튼 누름");
-        BuyTree(5);
-        Inventory("나무6");
+        priceInt = 5;
+        name = "나무6";
     }
 
     public void ClickTree7()
     {
+        thisImg.sprite = nubmerTreeImage[6];
+        numberPanel.SetActive(true);
         Debug.Log("나무7 버튼 누름");
-        BuyTree(6);
-        Inventory("나무7");
+        priceInt = 6;
+        name = "나무7";
     }
 
     public void ClickTree8()
     {
+        thisImg.sprite = nubmerTreeImage[7];
+        numberPanel.SetActive(true);
         Debug.Log("나무8 버튼 누름");
-        BuyTree(7);
-        Inventory("나무8");
+        priceInt = 7;
+        name = "나무8";
     }
 
     public void ClickTree9()
     {
+        thisImg.sprite = nubmerTreeImage[8];
+        numberPanel.SetActive(true);
         Debug.Log("나무9 버튼 누름");
-        BuyTree(8);
-        Inventory("나무9");
+        priceInt = 8;
+        name = "나무9";
     }
 
     public void ClickMaterial1()
     {
+        thisImg.sprite = nubmerMaterialImage[0];
+        numberPanel.SetActive(true);
         Debug.Log("재료1 버튼 누름");
-        BuyMaterial(0);
-        Inventory("재료1");
+        priceInt = 0;
+        name = "재료1";
     }
 
     public void ClickMaterial2()
     {
+        thisImg.sprite = nubmerMaterialImage[1];
+        numberPanel.SetActive(true);
         Debug.Log("재료2 버튼 누름");
-        BuyMaterial(1);
-        Inventory("재료2");
+        priceInt = 1;
+        name = "재료2";
     }
 
     public void ClickMaterial3()
     {
+        thisImg.sprite = nubmerMaterialImage[2];
+        numberPanel.SetActive(true);
         Debug.Log("재료3 버튼 누름");
-        BuyMaterial(2);
-        Inventory("재료3");
+        priceInt = 2;
+        name = "재료3";
     }
 
     public void ClickMaterial4()
     {
+        thisImg.sprite = nubmerMaterialImage[3];
+        numberPanel.SetActive(true);
         Debug.Log("재료4 버튼 누름");
-        BuyMaterial(3);
-        Inventory("재료4");
+        priceInt = 3;
+        name = "재료4";
     }
 
     public void ClickMaterial5()
     {
+        thisImg.sprite = nubmerMaterialImage[4];
+        numberPanel.SetActive(true);
         Debug.Log("재료5 버튼 누름");
-        BuyMaterial(4);
-        Inventory("재료5");
+        priceInt = 4;
+        name = "재료5";
     }
 
     public void ClickMaterial6()
     {
+        thisImg.sprite = nubmerMaterialImage[5];
+        numberPanel.SetActive(true);
         Debug.Log("재료6 버튼 누름");
-        BuyMaterial(5);
-        Inventory("재료6");
+        priceInt = 5;
+        name = "재료6";
     }
 
     public void ClickMaterial7()
     {
+        thisImg.sprite = nubmerMaterialImage[6];
+        numberPanel.SetActive(true);
         Debug.Log("재료7 버튼 누름");
-        BuyMaterial(6);
-        Inventory("재료7");
+        priceInt = 6;
+        name = "재료7";
     }
 
     public void ClickMaterial8()
     {
+        thisImg.sprite = nubmerMaterialImage[7];
+        numberPanel.SetActive(true);
         Debug.Log("재료8 버튼 누름");
-        BuyMaterial(7);
-        Inventory("재료8");
+        priceInt = 7;
+        name = "재료8";
     }
 
     public void ClickMaterial9()
     {
+        thisImg.sprite = nubmerMaterialImage[8];
+        numberPanel.SetActive(true);
         Debug.Log("재료9 버튼 누름");
-        BuyMaterial(8);
-        Inventory("재료9");
+        priceInt = 8;
+        name = "재료9";
+    }
+
+    public void ClickPlus()
+    {
+        Debug.Log("+ 버튼"); 
+        numberInt++;
+        numberText.text=numberInt.ToString();
+    }
+
+    public void ClickMinus()
+    {
+        if (numberInt <= 0)
+        {
+            return;
+        }
+        Debug.Log("- 버튼");
+        numberInt--;
+        numberText.text=numberInt.ToString();       
+    }
+
+    public void ClickCheck()
+    {       
+        numberPanel.SetActive(false);
+        ClickCheckAfter();
+    }
+
+    public void ClickCheckAfter()
+    {
+            Debug.Log("gdgdg");
+            BuyTree(priceInt);
+            Inventory(name);
     }
 
     public void BuyTree(int i)
     {
-        minusPrice = treePrice[i];
+        
+        minusPrice = treePrice[i] * numberInt;
         if (GameManager.price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
         {
             Debug.Log("돈이 부족합니다.");
             return;
         }
-
+        
         GameManager.price -= minusPrice;
         money.text = "돈 : " + GameManager.price;
-        text.text = tree[i];
+        text.text = trees[i] + ", " + numberInt + "개";
     }
 
     public void BuyMaterial(int i)
@@ -179,7 +252,7 @@ public class Shop : MonoBehaviour
 
         GameManager.price -= minusPrice;
         money.text = "돈 : " + GameManager.price;
-        text.text = material[i];
+        text.text = materials[i];
     }
 
     public void clickTreePanel()
@@ -277,8 +350,14 @@ public class Shop : MonoBehaviour
         {
             if (inventory[i].text == "")
             {
-                Debug.Log(slot);
-                inventory[i].text = slot;
+                for (int j = 0; j < numberInt; j++)
+                {
+                    Debug.Log(slot);
+                    inventory[i].text = slot;
+                    i++;                
+                }
+                numberInt = 0;
+                numberText.text = numberInt.ToString();
                 break;
             }
         }

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         textBad.text = "Bad : " + bad.ToString();
         textMiss.text = "Miss : " + miss.ToString();
         textThisGold.text = "ÀÌ¹øÆÇ¿¡ È¹µæÇÑ °ñµå´Â " + thisGold.ToString();
-        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerMoney.gold.ToString();
+        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerMoney.money.ToString();
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + bad + " !\nMiss : " + miss + " !");
         if (isPause)
         {
@@ -87,5 +87,5 @@ public class PlayerController : MonoBehaviour
 [System.Serializable]
 public class PlayerMoney
 {
-    public int gold;
+    public int money;
 }

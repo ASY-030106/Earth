@@ -9,21 +9,22 @@ public class Player : MonoBehaviour
     public int trashCount;
     public float jumpPower;
     bool isJump;
-    GameObject trash;
+    public GameObject trash;
+    public Button btnTrash;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        isJump = false;    
+        isJump = false;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !isJump)
+        /*if (Input.GetButtonDown("Jump") && !isJump)
         {
             isJump = true;
             rigid.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
-        }
+        }*/
     }
 
     void FixedUpdate()
@@ -45,17 +46,33 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Trash")
         {
-            //other.gameObject.SetActive(false);
             trash = other.gameObject;
-            //trashCount++;
-            //Debug.Log("주운 쓰레기 개수: " + trashCount);
+            btnTrash.gameObject.SetActive(true);    
         }
     }
 
-    public void PickUp()
+    public void OnTriggerExit(Collider other)
     {
-        trash.gameObject.SetActive(false);
-        //trashCount++;
-        //Debug.Log("주운 쓰레기 개수: " + trashCount);
+        if(other.tag == "Trash")
+        {
+            btnTrash.gameObject.SetActive(false);
+        }
+    }
+
+    public void PickUp() //쓰레기 줍기
+    {
+        trash.gameObject.SetActive(false); 
+        btnTrash.gameObject.SetActive(false);
+        trashCount++;
+        Debug.Log("주운 쓰레기 개수: " + trashCount);
+    }
+
+    public void Jump()
+    {
+        if (!isJump)
+        {
+            isJump = true;
+            rigid.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+        }
     }
 }
