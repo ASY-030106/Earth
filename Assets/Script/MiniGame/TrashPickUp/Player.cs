@@ -54,6 +54,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Trash")
+        {
+            Debug.Log("나감");
+        }    
+    }
+
     public void PickUp() //쓰레기 줍기
     {
         trash.gameObject.SetActive(false); 
