@@ -55,18 +55,14 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "Trash")
         {
-<<<<<<< HEAD
             Debug.Log("나감");
         }    
-=======
-            btnTrash.gameObject.SetActive(false);
-        }
->>>>>>> 21a6f0bfd539fc269a5f3eadb1c8d1864145b7a4
+            btnTrash.gameObject.SetActive(false);       
     }
 
     public void PickUp() //쓰레기 줍기
     {
-        trash.gameObject.SetActive(false); 
+        trash.gameObject.SetActive(false);
         btnTrash.gameObject.SetActive(false);
         trashCount++;
         Debug.Log("주운 쓰레기 개수: " + trashCount);

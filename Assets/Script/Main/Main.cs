@@ -35,4 +35,10 @@ public class Main : MonoBehaviour
         LoadingManager.sceneName = "MiniGame";
         SceneManager.LoadScene("Loading");
     }
+
+    public void ClickEarth()
+    {
+        LoadingManager.sceneName = "Earth";
+        SceneManager.LoadScene("Loading");
+    }
 }
