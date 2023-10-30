@@ -10,15 +10,12 @@ public class Player : MonoBehaviour
     public float jumpPower;
     bool isJump;
     public GameObject trash;
-    //public GameObject btnTrash;
     public Button btnTrash;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
         isJump = false;
-        //btnTrash = GameObject.Find("btnTrash");
-        //btnTrash.SetActive(false);
     }
 
     void Update()
@@ -58,8 +55,13 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "Trash")
         {
+<<<<<<< HEAD
             Debug.Log("나감");
         }    
+=======
+            btnTrash.gameObject.SetActive(false);
+        }
+>>>>>>> 21a6f0bfd539fc269a5f3eadb1c8d1864145b7a4
     }
 
     public void PickUp() //쓰레기 줍기

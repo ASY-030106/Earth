@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Story/Stroy.unity
     guid: 55df8050090f2ea46b6df818126f87e1
   - enabled: 1
@@ -20,4 +21,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start/Start.unity
     guid: fdbec05832c64be45a426ef781109978
+=======
+    path: Assets/Scenes/MiniGame/TrashPickUp.unity
+    guid: 316b88efae98e734897d3ae314365c41
+>>>>>>> 21a6f0bfd539fc269a5f3eadb1c8d1864145b7a4
   m_configObjects: {}
