@@ -31,4 +31,6 @@ public class UIManager : MonoBehaviour
             Debug.Log("나무 자람");
         }
     }
+
+    
 }

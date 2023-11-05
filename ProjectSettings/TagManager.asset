@@ -9,6 +9,8 @@ TagManager:
   - HitBoard
   - Floor
   - Continent
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
