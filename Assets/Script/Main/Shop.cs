@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
     public Text text,money,left,right;
     public GameObject treePanel1, materialPanel1,numberPanel;
     public Text numberText;
-    public Image thisImg;   
+    public Image thisImg;
 
     void Awake()
     {
@@ -200,6 +200,8 @@ public class Shop : MonoBehaviour
         Debug.Log("+ 버튼"); 
         numberInt++;
         numberText.text=numberInt.ToString();
+        GameManager.itemNumber++;
+        Debug.Log(GameManager.itemNumber);
     }
 
     public void ClickMinus()
@@ -210,7 +212,9 @@ public class Shop : MonoBehaviour
         }
         Debug.Log("- 버튼");
         numberInt--;
-        numberText.text=numberInt.ToString();       
+        numberText.text=numberInt.ToString();
+        GameManager.itemNumber--;
+        Debug.Log(GameManager.itemNumber);
     }
 
     public void ClickCheck()
@@ -221,7 +225,6 @@ public class Shop : MonoBehaviour
 
     public void ClickCheckAfter()
     {
-            Debug.Log("gdgdg");
             BuyTree(priceInt);
             Inventory(name);
     }

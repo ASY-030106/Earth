@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Main : MonoBehaviour
 {
     public Image SoundPanel;
+    public Image ShopPanel;
+    public Image InventoryPanel;
 
     public void ClickBack()
     {
@@ -26,8 +28,8 @@ public class Main : MonoBehaviour
 
     public void ClickShop()
     {
-        LoadingManager.sceneName = "Shop";
-        SceneManager.LoadScene("Loading");
+        ShopPanel.gameObject.SetActive(true);
+        InventoryPanel.gameObject.SetActive(true);
     }
 
     public void ClickMiniGame()
@@ -40,5 +42,11 @@ public class Main : MonoBehaviour
     {
         LoadingManager.sceneName = "Earth";
         SceneManager.LoadScene("Loading");
+    }
+
+    public void ClickShopClose()
+    {
+        ShopPanel.gameObject.SetActive(false);
+        InventoryPanel.gameObject.SetActive(false);
     }
 }
