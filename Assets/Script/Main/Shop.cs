@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,17 +12,19 @@ public class Shop : MonoBehaviour
     public List<int> materialPrice = new List<int>();
     public List<string> materials = new List<string>();
     public List<Text> inventory = new List<Text>();
+    public List<Text> inventoryText = new List<Text>();
     public Sprite[] nubmerTreeImage;
     public Sprite[] nubmerMaterialImage;
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
-    int minusPrice, number, numberInt, priceInt,imageInt;
+    int minusPrice, number, numberInt, priceInt, imageInt;
     string name;
     bool isActive;
-    public Text text,money,left,right;
-    public GameObject treePanel1, materialPanel1,numberPanel;
+    public Text text, money, left, right;
+    public GameObject treePanel1, materialPanel1, numberPanel;
     public Text numberText;
     public Image thisImg;
+    string numberString;
 
     void Awake()
     {
@@ -38,8 +41,8 @@ public class Shop : MonoBehaviour
         thisImg.sprite = nubmerTreeImage[0];
         numberPanel.SetActive(true);
         priceInt = 0;
-        name = "나무1";       
-        Debug.Log("나무1 버튼 누름");      
+        name = "나무1";
+        Debug.Log("나무1 버튼 누름");
     }
 
     public void ClickTree2()
@@ -197,11 +200,9 @@ public class Shop : MonoBehaviour
 
     public void ClickPlus()
     {
-        Debug.Log("+ 버튼"); 
+        Debug.Log("+ 버튼");
         numberInt++;
-        numberText.text=numberInt.ToString();
-        GameManager.itemNumber++;
-        Debug.Log(GameManager.itemNumber);
+        numberText.text = numberInt.ToString();
     }
 
     public void ClickMinus()
@@ -212,33 +213,31 @@ public class Shop : MonoBehaviour
         }
         Debug.Log("- 버튼");
         numberInt--;
-        numberText.text=numberInt.ToString();
-        GameManager.itemNumber--;
-        Debug.Log(GameManager.itemNumber);
+        numberText.text = numberInt.ToString(); ;
     }
 
     public void ClickCheck()
-    {       
+    {
         numberPanel.SetActive(false);
         ClickCheckAfter();
     }
 
     public void ClickCheckAfter()
     {
-            BuyTree(priceInt);
-            Inventory(name);
+        BuyTree(priceInt);
+        Inventory(name);
     }
 
     public void BuyTree(int i)
     {
-        
+
         minusPrice = treePrice[i] * numberInt;
         if (GameManager.price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
         {
             Debug.Log("돈이 부족합니다.");
             return;
         }
-        
+
         GameManager.price -= minusPrice;
         money.text = "돈 : " + GameManager.price;
         text.text = trees[i] + ", " + numberInt + "개";
@@ -284,7 +283,7 @@ public class Shop : MonoBehaviour
 
     public void ClickRight()
     {
-        if(isActive == true)
+        if (isActive == true)
         {
             Debug.Log("오른쪽 버튼 누름");
             GameObject treePanelRight = treePanel[number];
@@ -298,7 +297,7 @@ public class Shop : MonoBehaviour
                 right.gameObject.SetActive(false);
             }
         }
-        else if(isActive == false)
+        else if (isActive == false)
         {
             Debug.Log("오른쪽 버튼 누름");
             GameObject MatePanelRight = meterialPanel[number];
@@ -316,7 +315,7 @@ public class Shop : MonoBehaviour
 
     public void ClickLeft()
     {
-        if(isActive == true)
+        if (isActive == true)
         {
             Debug.Log("왼쪽 버튼 누름");
             GameObject treePanelLeft = treePanel[number];
@@ -330,7 +329,7 @@ public class Shop : MonoBehaviour
                 left.gameObject.SetActive(false);
             }
         }
-        else if(isActive == false)
+        else if (isActive == false)
         {
             Debug.Log("왼쪽 버튼 누름");
             GameObject MatePanelRight = meterialPanel[number];
@@ -343,26 +342,60 @@ public class Shop : MonoBehaviour
             {
                 left.gameObject.SetActive(false);
             }
-        }      
+        }
     }
 
     public void Inventory(string slot)
     {
+        bool keyExitst = GameManager.item.ContainsKey(slot);
+        numberString = numberInt.ToString();
 
-        for (int i=0; i<inventory.Count; i++)
+        if (keyExitst) //키를 포함하고 있으면
         {
-            if (inventory[i].text == "")
+            Debug.Log("포함");
+            
+            for(int i=0; i<inventory.Count; i++)
             {
-                for (int j = 0; j < numberInt; j++)
+                if (inventory[i].text == slot)
+                {
+                    inventoryNumber(i,slot);
+                    numberInt = 0;
+                    numberText.text = numberInt.ToString();
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("안포함");
+            (GameManager.item).Add(slot, numberString);
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].text == "")
                 {
                     Debug.Log(slot);
                     inventory[i].text = slot;
-                    i++;                
+                    inventoryText[i].text = numberString;
+                    numberInt = 0;
+                    numberText.text = numberInt.ToString();
+                    break;
                 }
-                numberInt = 0;
-                numberText.text = numberInt.ToString();
-                break;
             }
         }
+
+        
+
+
+        foreach (KeyValuePair<string, string> i in GameManager.item)
+        {
+            Debug.Log("Key : " + i.Key + " value : " + i.Value);
+        }
+    }
+
+    public void inventoryNumber(int number,string slot)
+    {
+        int textNumber = int.Parse((inventoryText[number].text));
+        int totalNumber = textNumber + numberInt; //원래 가지고 있던 재료의 갯수와 새로 산 재료의 갯수를 더해줌
+        inventoryText[number].text = totalNumber.ToString();
+        (GameManager.item)[slot] = totalNumber.ToString();//키 값의 value를 변경
     }
 }

@@ -49,4 +49,10 @@ public class Main : MonoBehaviour
         ShopPanel.gameObject.SetActive(false);
         InventoryPanel.gameObject.SetActive(false);
     }
+
+    public void ClickTree()
+    {
+        LoadingManager.sceneName = "Tree";
+        SceneManager.LoadScene("Loading");
+    }
 }
