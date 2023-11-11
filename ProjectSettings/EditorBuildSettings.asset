@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Tree.unity
     guid: f44807c8a1b08d84693e40ab22a63f57
+  - enabled: 1
+    path: Assets/Scenes/Main/Continent.unity
+    guid: b329edc06b47be5479f509f65ae49384
   m_configObjects: {}

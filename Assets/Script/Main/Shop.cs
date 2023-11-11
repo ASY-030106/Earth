@@ -29,7 +29,6 @@ public class Shop : MonoBehaviour
     void Awake()
     {
         minusPrice = 0;
-        GameManager.price = 100000; //ÀÓ½Ã·Î ±Ý¾× ³Ö¾îµÒ
         money.text = "µ· : " + GameManager.price;
         number = 0;
         numberInt = 0;
@@ -253,7 +252,7 @@ public class Shop : MonoBehaviour
         }
 
         GameManager.price -= minusPrice;
-        money.text = "µ· : " + GameManager.price;
+        money.text = "µ· : " + GameManager.item;
         text.text = materials[i];
     }
 

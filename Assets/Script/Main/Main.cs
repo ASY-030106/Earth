@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
 
     public void ClickEarth()
     {
-        LoadingManager.sceneName = "Earth";
+        LoadingManager.sceneName = "Continent";
         SceneManager.LoadScene("Loading");
     }
 
