@@ -256,7 +256,7 @@ public class Shop : MonoBehaviour
         text.text = materials[i];
     }
 
-    public void clickTreePanel()
+    public void ClickTreePanel()
     {
         left.gameObject.SetActive(false);
         right.gameObject.SetActive(true);
@@ -268,7 +268,7 @@ public class Shop : MonoBehaviour
         number = 0;
     }
 
-    public void clickMaterialPanel()
+    public void ClickMaterialPanel()
     {
         left.gameObject.SetActive(false);
         right.gameObject.SetActive(true);
@@ -357,7 +357,7 @@ public class Shop : MonoBehaviour
             {
                 if (inventory[i].text == slot)
                 {
-                    inventoryNumber(i,slot);
+                    InventoryNumber(i,slot);
                     numberInt = 0;
                     numberText.text = numberInt.ToString();
                 }
@@ -390,7 +390,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void inventoryNumber(int number,string slot)
+    public void InventoryNumber(int number,string slot)
     {
         int textNumber = int.Parse((inventoryText[number].text));
         int totalNumber = textNumber + numberInt; //원래 가지고 있던 재료의 갯수와 새로 산 재료의 갯수를 더해줌
