@@ -28,8 +28,10 @@ public class Shop : MonoBehaviour
 
     void Awake()
     {
+        GameManager.LoadData();
         minusPrice = 0;
-        money.text = "µ· : " + GameManager.Price;
+        Debug.Log(GameManager.Money);
+        money.text = "µ· : " + GameManager.Money;
         number = 0;
         numberInt = 0;
         isActive = true;
@@ -231,28 +233,28 @@ public class Shop : MonoBehaviour
     {
 
         minusPrice = treePrice[i] * numberInt;
-        if (GameManager.Price < minusPrice) //³»°¡ °¡Áø µ·ÀÌ ºüÁ®³ª°¥ µ·º¸´Ù ÀûÀ¸¸é ·Î±× ÂïÀ½
+        if (GameManager.Money < minusPrice) //³»°¡ °¡Áø µ·ÀÌ ºüÁ®³ª°¥ µ·º¸´Ù ÀûÀ¸¸é ·Î±× ÂïÀ½
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
             return;
         }
 
-        GameManager.Price -= minusPrice;
-        money.text = "µ· : " + GameManager.Price;
+        GameManager.Money -= minusPrice;
+        money.text = "µ· : " + GameManager.Money;
         text.text = trees[i] + ", " + numberInt + "°³";
     }
 
     public void BuyMaterial(int i)
     {
         minusPrice = materialPrice[i];
-        if (GameManager.Price < minusPrice) //³»°¡ °¡Áø µ·ÀÌ ºüÁ®³ª°¥ µ·º¸´Ù ÀûÀ¸¸é ·Î±× ÂïÀ½
+        if (GameManager.Money < minusPrice) //³»°¡ °¡Áø µ·ÀÌ ºüÁ®³ª°¥ µ·º¸´Ù ÀûÀ¸¸é ·Î±× ÂïÀ½
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
             return;
         }
 
-        GameManager.Price -= minusPrice;
-        money.text = "µ· : " + GameManager.Price;
+        GameManager.Money -= minusPrice;
+        money.text = "µ· : " + GameManager.Money;
         text.text = materials[i];
     }
 
