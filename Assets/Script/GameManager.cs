@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class GameManager : MonoBehaviour
 {
-    public static int Water { set; get; } //나무에 물 준 횟수
-    public static int Manure { set; get; } //나무에 비료 준 횟수
+    public static int water { set; get; } //나무에 물 준 횟수
+    public static int manure { set; get; } //나무에 비료 준 횟수
     //static int WaterFinish { set; get; } //줘야하는 물 몇번인지
     //static int ManureFinish { set; get; } //줘야하는 비료 수
     public static int Price { set; get; } //지금 내가 가진 돈
