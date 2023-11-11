@@ -9,7 +9,6 @@ public class Note : MonoBehaviour
 {
     private bool isHit = false;
     public Vector3 notePosition;
-    PlayerMoney playerMoney;
     void Update()
     {
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + great + " !\nMiss : " + miss + " !");
@@ -33,28 +32,28 @@ public class Note : MonoBehaviour
                 Debug.Log(zValue);
                 PlayerController.perfect++;
                 PlayerController.thisGold += 100;
-                PlayerController.instance.playerMoney.money += 100;
+                GameManager.Money += 100;
             }
             else if (zValue < -0.70f && zValue > -1.30f)
             {
                 Debug.Log(zValue);
                 PlayerController.great++;
                 PlayerController.thisGold += 50;
-                PlayerController.instance.playerMoney.money += 50;
+                GameManager.Money += 50;
             }
             else if (zValue < -0.60f && zValue > -1.40f)
             {
                 Debug.Log(zValue);
                 PlayerController.good++;
                 PlayerController.thisGold += 25;
-                PlayerController.instance.playerMoney.money += 25;
+                GameManager.Money += 25;
             }
             else if (zValue < -0.50f && zValue > -1.50f)
             {
                 Debug.Log(zValue);
                 PlayerController.bad++;
                 PlayerController.thisGold += 10;
-                PlayerController.instance.playerMoney.money += 10;
+                GameManager.Money += 10;
             }
             else if (zValue > -2.00f)
             {
@@ -77,9 +76,5 @@ public class Note : MonoBehaviour
         {
             isHit = false;
         }
-    }
-    private void Combo()
-    {
-
     }
 }

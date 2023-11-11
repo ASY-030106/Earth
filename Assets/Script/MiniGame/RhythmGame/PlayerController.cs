@@ -7,7 +7,7 @@ using System.IO;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    public PlayerMoney playerMoney;
+    public GameManager.GameData gameData;
 
     public Text textPerfect;
     public Text textGreat;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        GameManager.LoadData();
         if (instance == null)
         {
             instance = this;
@@ -38,9 +39,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        playerMoney = new PlayerMoney();
-        LoadPlayerMoneyFromJson();
         textGameSet.text = "Press S to Start";
+        gameData = new GameManager.GameData();
     }
     void Update()
     {
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         textBad.text = "Bad : " + bad.ToString();
         textMiss.text = "Miss : " + miss.ToString();
         textThisGold.text = "ÀÌ¹øÆÇ¿¡ È¹µæÇÑ °ñµå´Â " + thisGold.ToString();
-        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + playerMoney.money.ToString();
+        textGold.text = "ÇöÀç±îÁö È¹µæÇÑ °ñµå´Â " + GameManager.Money.ToString();
         //Debug.Log("Perfect : " + perfect + " !\nGreat : " + great + " !\nGood : " + good + " !\nBad : " + bad + " !\nMiss : " + miss + " !");
         if (isPause)
         {
@@ -61,31 +61,9 @@ public class PlayerController : MonoBehaviour
             textGameSet.text = "";
         }
     }
-
-    [ContextMenu("To Json Data")]
-    void SavePlayerMoneyToJson()
-    {
-        string jsonData = JsonUtility.ToJson(playerMoney, true);
-        string path = Path.Combine(Application.dataPath, "playerMoney.json");
-        File.WriteAllText(path, jsonData);
-    }
-
-    [ContextMenu("From Json Data")]
-    void LoadPlayerMoneyFromJson()
-    {
-        string path = Path.Combine(Application.dataPath, "playerMoney.json");
-        string jsonData = File.ReadAllText(path);
-        playerMoney = JsonUtility.FromJson<PlayerMoney>(jsonData);
-    }
     private void OnApplicationQuit()
     {
+        GameManager.SaveData();
         Debug.Log("°ÔÀÓ Á¾·á");
-        SavePlayerMoneyToJson();
     }
-}
-
-[System.Serializable]
-public class PlayerMoney
-{
-    public int money;
 }
