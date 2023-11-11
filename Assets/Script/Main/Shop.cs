@@ -345,7 +345,7 @@ public class Shop : MonoBehaviour
             {
                 left.gameObject.SetActive(false);
             }
-        }
+        } 
     }
 
     public void Inventory(string slot)
