@@ -255,13 +255,8 @@ public class Shop : MonoBehaviour
             return;
         }
 
-<<<<<<< HEAD
         GameManager.Price -= minusPrice;
         money.text = "µ· : " + GameManager.Price;
-=======
-        GameManager.price -= minusPrice;
-        money.text = "µ· : " + GameManager.item;
->>>>>>> ed76310b8dd7ba1695c339c80b21fd3d67f51937
         text.text = materials[i];
     }
 

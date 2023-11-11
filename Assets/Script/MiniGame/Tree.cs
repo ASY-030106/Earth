@@ -8,20 +8,20 @@ public class Tree : MonoBehaviour
 { 
     void Awake()
     {
-        GameManager.water = 0;
-        GameManager.manure = 0;
+        GameManager.Water = 0;
+        GameManager.Manure = 0;
     }
 
     public void ClickWater()
     {
         Debug.Log("물주기");
-        GameManager.water++;     
+        GameManager.Water++;     
     }
 
     public void ClickManure()
     {
         Debug.Log("비료 주기");
-        GameManager.manure++;
+        GameManager.Manure++;
     }
 
     public void ClickBack()
