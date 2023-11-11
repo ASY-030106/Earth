@@ -29,8 +29,7 @@ public class Shop : MonoBehaviour
     void Awake()
     {
         minusPrice = 0;
-        GameManager.price = 100000; //임시로 금액 넣어둠
-        money.text = "돈 : " + GameManager.price;
+        money.text = "돈 : " + GameManager.Price;
         number = 0;
         numberInt = 0;
         isActive = true;
@@ -232,28 +231,28 @@ public class Shop : MonoBehaviour
     {
 
         minusPrice = treePrice[i] * numberInt;
-        if (GameManager.price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
+        if (GameManager.Price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
         {
             Debug.Log("돈이 부족합니다.");
             return;
         }
 
-        GameManager.price -= minusPrice;
-        money.text = "돈 : " + GameManager.price;
+        GameManager.Price -= minusPrice;
+        money.text = "돈 : " + GameManager.Price;
         text.text = trees[i] + ", " + numberInt + "개";
     }
 
     public void BuyMaterial(int i)
     {
         minusPrice = materialPrice[i];
-        if (GameManager.price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
+        if (GameManager.Price < minusPrice) //내가 가진 돈이 빠져나갈 돈보다 적으면 로그 찍음
         {
             Debug.Log("돈이 부족합니다.");
             return;
         }
 
-        GameManager.price -= minusPrice;
-        money.text = "돈 : " + GameManager.price;
+        GameManager.Price -= minusPrice;
+        money.text = "돈 : " + GameManager.Price;
         text.text = materials[i];
     }
 
@@ -347,7 +346,7 @@ public class Shop : MonoBehaviour
 
     public void Inventory(string slot)
     {
-        bool keyExitst = GameManager.item.ContainsKey(slot);
+        bool keyExitst = GameManager.Item.ContainsKey(slot);
         numberString = numberInt.ToString();
 
         if (keyExitst) //키를 포함하고 있으면
@@ -367,7 +366,7 @@ public class Shop : MonoBehaviour
         else
         {
             Debug.Log("안포함");
-            (GameManager.item).Add(slot, numberString);
+            (GameManager.Item).Add(slot, numberString);
             for (int i = 0; i < inventory.Count; i++)
             {
                 if (inventory[i].text == "")
@@ -385,7 +384,7 @@ public class Shop : MonoBehaviour
         
 
 
-        foreach (KeyValuePair<string, string> i in GameManager.item)
+        foreach (KeyValuePair<string, string> i in GameManager.Item)
         {
             Debug.Log("Key : " + i.Key + " value : " + i.Value);
         }
@@ -396,6 +395,6 @@ public class Shop : MonoBehaviour
         int textNumber = int.Parse((inventoryText[number].text));
         int totalNumber = textNumber + numberInt; //원래 가지고 있던 재료의 갯수와 새로 산 재료의 갯수를 더해줌
         inventoryText[number].text = totalNumber.ToString();
-        (GameManager.item)[slot] = totalNumber.ToString();//키 값의 value를 변경
+        (GameManager.Item)[slot] = totalNumber.ToString();//키 값의 value를 변경
     }
 }
