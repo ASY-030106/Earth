@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Play : MonoBehaviour
 {
@@ -9,14 +11,32 @@ public class Play : MonoBehaviour
     public GameObject box;
     BoxCollider rangeCollider;
 
-    private void Start()
+    //public Vector3 endTouchPoint;
+
+    void Start()
     {
         StartCoroutine(RandomRespawn_Coroutine());
     }
 
-    private void Awake()
+    void Awake()
     {
+        //GameManager.LoadData();
         rangeCollider = rangeObject.GetComponent<BoxCollider>();
+    }
+
+    public void Left()
+    {
+        /*if ((Input.touchCount == 1) & !(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+        {
+            Touch touch = Input.GetTouch(0);
+            
+            if (touch.phase == TouchPhase.Ended)
+            {
+                // 터치 종료 시 처리
+                //endTouchPoint = touch.position;
+                box.SetActive(false);
+            }
+        }*/
     }
 
     Vector3 Return_RandomPosition()
