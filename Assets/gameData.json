@@ -1,7 +1,10 @@
 {
     "Water": 0,
     "Manure": 0,
-    "Price": 0,
     "ItemNumber": 0,
+<<<<<<< HEAD
     "Money": 100000
+=======
+    "Money": 10125
+>>>>>>> 66c5667182860da851cb6f9c659759e2384e87c5
 }
