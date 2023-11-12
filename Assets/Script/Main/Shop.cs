@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour
     public GameObject[] treePanel;
     public GameObject[] meterialPanel;
     int minusPrice, number, numberInt, priceInt, imageInt;
-    string name;
+    string slotName;
     bool isActive;
     public Text text, money, left, right;
     public GameObject treePanel1, materialPanel1, numberPanel;
@@ -28,7 +28,7 @@ public class Shop : MonoBehaviour
 
     void Awake()
     {
-        GameManager.LoadData();
+        //GameManager.LoadData();
         minusPrice = 0;
         Debug.Log(GameManager.Money);
         money.text = "돈 : " + GameManager.Money;
@@ -42,8 +42,9 @@ public class Shop : MonoBehaviour
         thisImg.sprite = nubmerTreeImage[0];
         numberPanel.SetActive(true);
         priceInt = 0;
-        name = "나무1";
+        slotName = "나무1";
         Debug.Log("나무1 버튼 누름");
+        Debug.Log(slotName);
     }
 
     public void ClickTree2()
@@ -52,7 +53,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무2 버튼 누름");
         priceInt = 1;
-        name = "나무2";
+        slotName = "나무2";
     }
 
     public void ClickTree3()
@@ -61,7 +62,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무3 버튼 누름");
         priceInt = 2;
-        name = "나무3";
+        slotName = "나무3";
     }
 
     public void ClickTree4()
@@ -70,7 +71,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무4 버튼 누름");
         priceInt = 3;
-        name = "나무4";
+        slotName = "나무4";
     }
 
     public void ClickTree5()
@@ -79,7 +80,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무5 버튼 누름");
         priceInt = 4;
-        name = "나무5";
+        slotName = "나무5";
     }
 
     public void ClickTree6()
@@ -88,7 +89,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무6 버튼 누름");
         priceInt = 5;
-        name = "나무6";
+        slotName = "나무6";
     }
 
     public void ClickTree7()
@@ -97,7 +98,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무7 버튼 누름");
         priceInt = 6;
-        name = "나무7";
+        slotName = "나무7";
     }
 
     public void ClickTree8()
@@ -106,7 +107,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무8 버튼 누름");
         priceInt = 7;
-        name = "나무8";
+        slotName = "나무8";
     }
 
     public void ClickTree9()
@@ -115,7 +116,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("나무9 버튼 누름");
         priceInt = 8;
-        name = "나무9";
+        slotName = "나무9";
     }
 
     public void ClickMaterial1()
@@ -124,7 +125,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료1 버튼 누름");
         priceInt = 0;
-        name = "재료1";
+        slotName = "재료1";
     }
 
     public void ClickMaterial2()
@@ -133,7 +134,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료2 버튼 누름");
         priceInt = 1;
-        name = "재료2";
+        slotName = "재료2";
     }
 
     public void ClickMaterial3()
@@ -142,7 +143,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료3 버튼 누름");
         priceInt = 2;
-        name = "재료3";
+        slotName = "재료3";
     }
 
     public void ClickMaterial4()
@@ -151,7 +152,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료4 버튼 누름");
         priceInt = 3;
-        name = "재료4";
+        slotName = "재료4";
     }
 
     public void ClickMaterial5()
@@ -160,7 +161,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료5 버튼 누름");
         priceInt = 4;
-        name = "재료5";
+        slotName = "재료5";
     }
 
     public void ClickMaterial6()
@@ -169,7 +170,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료6 버튼 누름");
         priceInt = 5;
-        name = "재료6";
+        slotName = "재료6";
     }
 
     public void ClickMaterial7()
@@ -178,7 +179,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료7 버튼 누름");
         priceInt = 6;
-        name = "재료7";
+        slotName = "재료7";
     }
 
     public void ClickMaterial8()
@@ -187,7 +188,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료8 버튼 누름");
         priceInt = 7;
-        name = "재료8";
+        slotName = "재료8";
     }
 
     public void ClickMaterial9()
@@ -196,7 +197,7 @@ public class Shop : MonoBehaviour
         numberPanel.SetActive(true);
         Debug.Log("재료9 버튼 누름");
         priceInt = 8;
-        name = "재료9";
+        slotName = "재료9";
     }
 
     public void ClickPlus()
@@ -221,12 +222,14 @@ public class Shop : MonoBehaviour
     {
         numberPanel.SetActive(false);
         ClickCheckAfter();
+        Debug.Log(slotName);
     }
 
     public void ClickCheckAfter()
     {
         BuyTree(priceInt);
-        Inventory(name);
+        Inventory(slotName);
+        Debug.Log(slotName);
     }
 
     public void BuyTree(int i)
@@ -348,7 +351,7 @@ public class Shop : MonoBehaviour
 
     public void Inventory(string slot)
     {
-        bool keyExitst = GameManager.Item.ContainsKey(slot);
+        bool keyExitst = (GameManager.Item).ContainsKey(slot);
         numberString = numberInt.ToString();
 
         if (keyExitst) //키를 포함하고 있으면

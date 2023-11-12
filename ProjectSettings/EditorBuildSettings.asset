@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start/Start.unity
     guid: fdbec05832c64be45a426ef781109978
   - enabled: 1
-    path: Assets/Scenes/Main/Earth.unity
-    guid: 34b6e80fb11485d4eba91706b1bba877
-  - enabled: 1
     path: Assets/Scenes/Main/Tree.unity
     guid: f44807c8a1b08d84693e40ab22a63f57
   - enabled: 1
