@@ -28,14 +28,14 @@ public class SpawnManager : MonoBehaviour
             objectList.Add(instance); //오브젝트 관리를 위해 리스트에 add
         }
         area.enabled = false;
-        yield return new WaitForSeconds(delayTime);   //주기 : 20초
+        yield return new WaitForSeconds(delayTime);   //주기 : 10초
 
         for (int i = 0; i < count; i++) //책 삭제
             Destroy(objectList[i].gameObject);
 
-        objectList.Clear();           //bookList 비우기
+        objectList.Clear();           //objectList 비우기
         area.enabled = true;
-        StartCoroutine("Spawn", 10);    //책 다시 스폰
+        StartCoroutine("Spawn", 10);    //다시 스폰
     }
 
     //BoxCollider 내의 랜덤한 위치를 return
