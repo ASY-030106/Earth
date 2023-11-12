@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject gObject;
 
-    int count = 10;                 //생성할 (게임 오브젝트)의 개수
+    int count = 1;                 //생성할 (게임 오브젝트)의 개수
     private BoxCollider area;     //BoxCollider의 사이즈를 가져오기 위한 변수
     private List<GameObject> objectList = new List<GameObject>();		//생성한 게임 오브젝트 리스트
 
@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
         area.enabled = false;
         yield return new WaitForSeconds(delayTime);   //주기 : 10초
 
-        for (int i = 0; i < count; i++) //책 삭제
+        for (int i = 0; i < count; i++) //삭제
             Destroy(objectList[i].gameObject);
 
         objectList.Clear();           //objectList 비우기
